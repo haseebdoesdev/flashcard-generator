@@ -12,8 +12,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package.json package-lock.json scripts/start.mjs ./
-COPY scripts/start.mjs ./scripts/start.mjs
+COPY package.json package-lock.json ./
+COPY scripts ./scripts
 RUN npm ci --omit=dev
 
 COPY --from=build /app/dist ./dist
