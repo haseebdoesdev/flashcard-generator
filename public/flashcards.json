@@ -1,0 +1,66 @@
+{
+  "deckName": "Bus Study Deck",
+  "description": "Sample deck — replace cards with your own study material",
+  "cards": [
+    {
+      "id": "bio-001",
+      "front": "What is the powerhouse of the cell?",
+      "back": "Mitochondria",
+      "tags": ["biology", "cells"]
+    },
+    {
+      "id": "bio-002",
+      "front": "What molecule stores genetic information?",
+      "back": "DNA (Deoxyribonucleic acid)",
+      "tags": ["biology", "genetics"]
+    },
+    {
+      "id": "chem-001",
+      "front": "What is the chemical symbol for gold?",
+      "back": "Au",
+      "tags": ["chemistry", "elements"]
+    },
+    {
+      "id": "chem-002",
+      "front": "How many protons does a carbon atom have?",
+      "back": "6",
+      "tags": ["chemistry", "atoms"]
+    },
+    {
+      "id": "geo-001",
+      "front": "What is the capital of Japan?",
+      "back": "Tokyo",
+      "tags": ["geography"]
+    },
+    {
+      "id": "geo-002",
+      "front": "Which ocean is the largest?",
+      "back": "Pacific Ocean",
+      "tags": ["geography"]
+    },
+    {
+      "id": "math-001",
+      "front": "What is the value of π (pi) to 2 decimal places?",
+      "back": "3.14",
+      "tags": ["math"]
+    },
+    {
+      "id": "math-002",
+      "front": "What is the formula for the area of a circle?",
+      "back": "A = πr²",
+      "tags": ["math", "geometry"]
+    },
+    {
+      "id": "hist-001",
+      "front": "In what year did World War II end?",
+      "back": "1945",
+      "tags": ["history"]
+    },
+    {
+      "id": "hist-002",
+      "front": "Who was the first person to walk on the Moon?",
+      "back": "Neil Armstrong",
+      "tags": ["history", "space"]
+    }
+  ]
+}
