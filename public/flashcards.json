@@ -1,66 +1,678 @@
 {
-  "deckName": "Bus Study Deck",
-  "description": "Sample deck — replace cards with your own study material",
+  "deckName": "COAL Final Exam Deck",
+  "description": "Comprehensive flashcards covering Computer Organization and Architecture — ISA, MIPS, Floating Point, Cache Memory, and Performance",
   "cards": [
     {
-      "id": "bio-001",
-      "front": "What is the powerhouse of the cell?",
-      "back": "Mitochondria",
-      "tags": ["biology", "cells"]
+      "id": "intro-001",
+      "front": "What are the two sub-units inside a processor (CPU) and what does each do?",
+      "back": "The Datapath performs actual computations (arithmetic, logic, data movement) and the Control Unit generates the sequence of signals that orchestrate the datapath's operations for each instruction.",
+      "tags": ["introduction", "cpu"]
     },
     {
-      "id": "bio-002",
-      "front": "What molecule stores genetic information?",
-      "back": "DNA (Deoxyribonucleic acid)",
-      "tags": ["biology", "genetics"]
+      "id": "intro-002",
+      "front": "List the five stages of the fetch-execute cycle in order.",
+      "back": "1) Instruction Fetch (read instruction from memory using PC)\n2) Instruction Decode (determine operation, read register operands)\n3) Execute (ALU computes result)\n4) Memory Access (read/write memory for load/store)\n5) Write Back (write result to destination register)",
+      "tags": ["introduction", "cpu", "pipeline"]
     },
     {
-      "id": "chem-001",
-      "front": "What is the chemical symbol for gold?",
-      "back": "Au",
-      "tags": ["chemistry", "elements"]
+      "id": "intro-003",
+      "front": "What is the relationship between clock period and clock frequency?",
+      "back": "Clock frequency = 1 / clock period. For example, a 4 GHz clock has a period of 0.25 ns (250 ps). Clock period is the duration of one cycle.",
+      "tags": ["introduction", "performance"]
     },
     {
-      "id": "chem-002",
-      "front": "How many protons does a carbon atom have?",
-      "back": "6",
-      "tags": ["chemistry", "atoms"]
+      "id": "intro-004",
+      "front": "What is the difference between SRAM and DRAM? Where is each used?",
+      "back": "SRAM (Static RAM): 6 transistors per cell, fast, expensive, no refresh needed → used for cache memory. DRAM (Dynamic RAM): 1 transistor + 1 capacitor per cell, dense, cheap, slower, requires periodic refresh → used for main memory.",
+      "tags": ["memory", "introduction"]
     },
     {
-      "id": "geo-001",
-      "front": "What is the capital of Japan?",
-      "back": "Tokyo",
-      "tags": ["geography"]
+      "id": "intro-005",
+      "front": "What is yield in chip manufacturing and how is it calculated?",
+      "back": "Yield = (Number of Good Dies) / (Total Number of Dies). Formula: Yield = 1 / (1 + (Defects_per_area × Die_area / 2))². Die Cost = Wafer Cost / (Dies per Wafer × Yield). Larger die sizes dramatically decrease yield.",
+      "tags": ["introduction", "manufacturing"]
     },
     {
-      "id": "geo-002",
-      "front": "Which ocean is the largest?",
-      "back": "Pacific Ocean",
-      "tags": ["geography"]
+      "id": "intro-006",
+      "front": "Name the five levels of abstraction in a computer system from hardware to application.",
+      "back": "Level 0: Physical Design (transistors, wires)\nLevel 1: Microarchitecture (control signals)\nLevel 2: Instruction Set Architecture (ISA)\nLevel 3: Operating System\nLevel 4: Assembly Language\nLevel 5: High-Level Language / Applications",
+      "tags": ["introduction", "abstraction"]
     },
     {
-      "id": "math-001",
-      "front": "What is the value of π (pi) to 2 decimal places?",
-      "back": "3.14",
-      "tags": ["math"]
+      "id": "intro-007",
+      "front": "What is the ISA (Instruction Set Architecture) and why is it important?",
+      "back": "The ISA is the critical interface between hardware and software. It defines instructions and formats, data types, registers, addressing modes, memory model, and exception handling. It allows software to be written independently of the specific hardware implementation.",
+      "tags": ["introduction", "isa"]
     },
     {
-      "id": "math-002",
-      "front": "What is the formula for the area of a circle?",
-      "back": "A = πr²",
-      "tags": ["math", "geometry"]
+      "id": "intro-008",
+      "front": "What is the difference between RISC and CISC architectures?",
+      "back": "RISC (Reduced Instruction Set Computer): simple instructions, fixed-size, few formats, load-store architecture, easy to pipeline. Example: MIPS, ARM. CISC (Complex Instruction Set Computer): variable-length instructions, many formats, complex operations in single instructions. Example: Intel x86.",
+      "tags": ["introduction", "isa"]
     },
     {
-      "id": "hist-001",
-      "front": "In what year did World War II end?",
-      "back": "1945",
-      "tags": ["history"]
+      "id": "intro-009",
+      "front": "What are the three classes of computers and their primary optimization targets?",
+      "back": "Desktop/Notebook: general-purpose, cost/performance balance. Server: network-based, optimized for throughput, reliability, availability. Embedded: hidden in devices (phones, cars), optimized for power, cost, and size constraints.",
+      "tags": ["introduction"]
     },
     {
-      "id": "hist-002",
-      "front": "Who was the first person to walk on the Moon?",
-      "back": "Neil Armstrong",
-      "tags": ["history", "space"]
+      "id": "intro-010",
+      "front": "What do the assembler, linker, and debugger do?",
+      "back": "Assembler: converts assembly language (mnemonics) into binary machine code (object files). Linker: combines multiple object files and link libraries into a single executable. Debugger: allows tracing execution, viewing memory, registers, and machine instructions at runtime.",
+      "tags": ["introduction", "tools"]
+    },
+    {
+      "id": "num-001",
+      "front": "What is the range of an n-bit unsigned binary number?",
+      "back": "0 to 2^n − 1. For 8 bits: 0 to 255. For 32 bits: 0 to 4,294,967,295.",
+      "tags": ["numbers", "binary"]
+    },
+    {
+      "id": "num-002",
+      "front": "What is the range of an n-bit two's complement signed number?",
+      "back": "−2^(n−1) to +2^(n−1) − 1. For 32 bits: −2,147,483,648 to +2,147,483,647. The negative range is one larger than the positive range.",
+      "tags": ["numbers", "twos-complement"]
+    },
+    {
+      "id": "num-003",
+      "front": "How do you negate a two's complement number?",
+      "back": "Invert all bits (bitwise NOT) then add 1. Example: +3 = 0011, invert → 1100, add 1 → 1101 = −3. Note: 'negate' means changing sign; 'invert' means flipping bits.",
+      "tags": ["numbers", "twos-complement"]
+    },
+    {
+      "id": "num-004",
+      "front": "What is sign extension and when is it needed?",
+      "back": "Sign extension converts an n-bit two's complement number to a larger bit width by copying the sign bit (MSB) into all new higher-order bits. Example: 4-bit 1010 (−6) → 8-bit 11111010 (still −6). Used in MIPS when 16-bit immediates are extended to 32 bits for arithmetic.",
+      "tags": ["numbers", "twos-complement"]
+    },
+    {
+      "id": "num-005",
+      "front": "When does overflow occur in two's complement addition?",
+      "back": "Overflow occurs when: (1) two positive numbers produce a negative result, or (2) two negative numbers produce a positive result. Technically, when the carry into the MSB differs from the carry out of the MSB. Adding a positive and a negative number can NEVER overflow.",
+      "tags": ["numbers", "overflow"]
+    },
+    {
+      "id": "num-006",
+      "front": "What are the three representations for negative numbers and their key differences?",
+      "back": "Sign-Magnitude: MSB = sign, rest = magnitude. Two zeros (+0, −0). One's Complement: negate by inverting all bits. Two zeros. Two's Complement: negate by inverting and adding 1. One zero. Easier hardware for addition. Two's complement is used by virtually all modern processors.",
+      "tags": ["numbers", "representation"]
+    },
+    {
+      "id": "mips-001",
+      "front": "What are the four MIPS design principles?",
+      "back": "1) Simplicity favors regularity (fixed-size instructions, few formats)\n2) Smaller is faster (32 registers, limited instruction set)\n3) Make the common case fast (register operands, immediate constants)\n4) Good design demands good compromises (three instruction formats, fixed-size instructions limit constant sizes)",
+      "tags": ["mips", "design"]
+    },
+    {
+      "id": "mips-002",
+      "front": "How much memory can MIPS address and how is it organized?",
+      "back": "2^32 bytes = 4 GB, byte-addressable. Word = 4 bytes, must be word-aligned (address multiple of 4). Big-endian byte ordering (MSB at lowest address). Memory divided into: Reserved, Text (instructions from 0x04000000), Data (static from 0x10000000), Stack (grows down from 0x7FFFFFFF).",
+      "tags": ["mips", "memory"]
+    },
+    {
+      "id": "mips-003",
+      "front": "What is the difference between big-endian and little-endian byte ordering?",
+      "back": "Big-endian: MSB stored at lowest byte address (e.g., MIPS, SPARC). Little-endian: LSB stored at lowest byte address (e.g., Intel x86). For the word 0x12345678 at address 0x100: Big-endian stores 12 at 0x100, 34 at 0x101, 56 at 0x102, 78 at 0x103. Little-endian reverses this order.",
+      "tags": ["mips", "memory", "endianness"]
+    },
+    {
+      "id": "mips-004",
+      "front": "What are the caller-saved vs callee-saved registers in MIPS and why does it matter?",
+      "back": "Caller-saved (temporaries): $t0-$t9, $a0-$a3, $v0-$v1 — the called procedure may freely overwrite these. Callee-saved (saved): $s0-$s7, $sp, $fp, $ra — the called procedure must save and restore these if it uses them. This convention allows procedures to share registers without corruption.",
+      "tags": ["mips", "registers", "procedures"]
+    },
+    {
+      "id": "mips-005",
+      "front": "Why is register $zero useful?",
+      "back": "It provides a hardwired constant 0. Enables: move (addu $s1,$s2,$zero), load small constant (ori $s1,$zero,5), nop (sll $zero,$zero,0), compare to zero (beq $s1,$zero,label), clear register (xor $s1,$s1,$s1 or addu $s1,$zero,$zero).",
+      "tags": ["mips", "registers"]
+    },
+    {
+      "id": "fmt-001",
+      "front": "Draw the R-type instruction format and name each field.",
+      "back": "| op(6) | rs(5) | rt(5) | rd(5) | sa(5) | funct(6) |\nop: opcode (always 0 for R-type ALU). rs, rt: source registers. rd: destination register. sa: shift amount (for shift instructions). funct: function code (distinguishes operations like add=0x20, sub=0x22).",
+      "tags": ["mips", "formats", "r-type"]
+    },
+    {
+      "id": "fmt-002",
+      "front": "Draw the I-type instruction format and explain the immediate field.",
+      "back": "| op(6) | rs(5) | rt(5) | immediate(16) |\nrs: source register (or base for load/store). rt: destination for ALU/load, source for store/branch. The 16-bit immediate is sign-extended for addi/addiu/slti/load/store and zero-extended for andi/ori/xori.",
+      "tags": ["mips", "formats", "i-type"]
+    },
+    {
+      "id": "fmt-003",
+      "front": "Draw the J-type instruction format and explain how the 32-bit jump target address is formed.",
+      "back": "| op(6) | target(26) |\nThe 32-bit address is: {PC[31:28], target_26, 00}. Upper 4 bits from current PC, 26 bits from instruction, 2 zero bits appended (word-aligned). This gives a 256 MB jump range within the same 256 MB region.",
+      "tags": ["mips", "formats", "j-type"]
+    },
+    {
+      "id": "fmt-004",
+      "front": "How do you load a 32-bit constant into a register in MIPS?",
+      "back": "Use two instructions: lui $rt, upper16 loads the upper 16 bits and clears the lower 16. Then ori $rt, $rt, lower16 fills in the lower 16 bits. Example: lui $s1, 0xAC51 then ori $s1, $s1, 0x65D9 gives $s1 = 0xAC5165D9.",
+      "tags": ["mips", "constants"]
+    },
+    {
+      "id": "arith-001",
+      "front": "What is the difference between add/sub and addu/subu in MIPS?",
+      "back": "add and sub trigger an arithmetic exception on signed overflow (result not written to destination). addu and subu perform the identical operation but silently ignore overflow. Most compilers use addu/subu because languages like C don't define signed overflow behavior. The 'u' does NOT mean unsigned addition — the addition is the same.",
+      "tags": ["mips", "arithmetic"]
+    },
+    {
+      "id": "arith-002",
+      "front": "Why is there no subi instruction in MIPS?",
+      "back": "Because addi with a negative immediate value serves the same purpose. addi $s1, $s2, -5 is equivalent to subi $s1, $s2, 5. The 16-bit immediate is sign-extended, so negative constants work correctly.",
+      "tags": ["mips", "arithmetic"]
+    },
+    {
+      "id": "logic-001",
+      "front": "How are AND, OR, XOR, and NOR used for bit manipulation?",
+      "back": "AND: clear bits (x AND 0 = 0, x AND 1 = x) — masking. OR: set bits (x OR 1 = 1, x OR 0 = x). XOR: toggle bits (x XOR 1 = NOT x, x XOR 0 = x). NOR: used as NOT when both sources are the same register (nor $s1, $s2, $s2 = NOT $s2).",
+      "tags": ["mips", "logical"]
+    },
+    {
+      "id": "logic-002",
+      "front": "Are immediate constants for andi/ori/xori sign-extended or zero-extended?",
+      "back": "Zero-extended. This is different from addi/addiu/slti which sign-extend. So andi $s1, $s2, 0xFFFF masks the lower 16 bits (0x0000FFFF), not all bits (0xFFFFFFFF). Important distinction for exam!",
+      "tags": ["mips", "logical", "extension"]
+    },
+    {
+      "id": "shift-001",
+      "front": "What is the difference between srl (logical right shift) and sra (arithmetic right shift)?",
+      "back": "srl fills vacated MSB positions with 0 — equivalent to unsigned division by 2^n. sra fills vacated MSB positions with the sign bit — equivalent to signed division by 2^n (rounds toward negative infinity). Example: -8 (11111000) sra by 1 = -4 (11111100); srl by 1 = 2,147,483,644 (01111100).",
+      "tags": ["mips", "shift"]
+    },
+    {
+      "id": "shift-002",
+      "front": "How does sll relate to multiplication and what is the shift amount field?",
+      "back": "sll by n multiplies by 2^n. The shift amount is in the 5-bit 'sa' field (bits 10-6) of the R-type format. Variable shifts (sllv, srlv, srav) use the value in register $rs instead of the sa field. Multiplication by any constant can be decomposed into shifts and adds.",
+      "tags": ["mips", "shift", "multiplication"]
+    },
+    {
+      "id": "mem-001",
+      "front": "What does 'load-store architecture' mean?",
+      "back": "Only load and store instructions access memory. All arithmetic/logical operations work exclusively on registers. This simplifies processor design, enables pipelining (memory access is isolated to one stage), and encourages keeping data in fast registers.",
+      "tags": ["mips", "memory", "architecture"]
+    },
+    {
+      "id": "mem-002",
+      "front": "What is the difference between lb and lbu?",
+      "back": "lb (load byte): sign-extends the 8-bit byte to fill the 32-bit register — copies the MSB of the byte into bits 8-31. Use for signed characters/values. lbu (load byte unsigned): zero-extends — fills bits 8-31 with zeros. Use for unsigned values or raw byte data. Same distinction applies to lh vs lhu for halfwords.",
+      "tags": ["mips", "memory", "load"]
+    },
+    {
+      "id": "mem-003",
+      "front": "How is the memory address calculated in load/store instructions?",
+      "back": "Address = $rs (base register) + sign_extend(16-bit offset). This is base/displacement addressing. Special cases: if $rs = $zero, it's absolute addressing. If offset = 0, it's register indirect addressing. Offset range: −32768 to +32767 bytes.",
+      "tags": ["mips", "memory", "addressing"]
+    },
+    {
+      "id": "mem-004",
+      "front": "Why must word addresses be multiples of 4 in MIPS?",
+      "back": "This is the alignment restriction. A word is 4 bytes, and the hardware requires word addresses to be aligned to 4-byte boundaries for efficiency. Similarly, halfword addresses must be multiples of 2. Misaligned access causes an exception. This simplifies memory interface hardware.",
+      "tags": ["mips", "memory", "alignment"]
+    },
+    {
+      "id": "mem-005",
+      "front": "How do you access array element A[i] when i is in a register?",
+      "back": "For word array: sll $t0, $i_reg, 2 (multiply index by 4), addu $t0, $base, $t0 (add base address), lw $t1, 0($t0) (load element). For halfword: shift by 1. For byte: no shift needed, just add index to base. Pointer traversal (incrementing address by element size each iteration) is often more efficient in loops.",
+      "tags": ["mips", "memory", "arrays"]
+    },
+    {
+      "id": "branch-001",
+      "front": "How does PC-relative addressing work for branches?",
+      "back": "Target = PC + 4 + (sign_extend(offset_16) << 2). The offset counts instructions from the NEXT instruction (PC+4), not the branch itself. The left shift by 2 accounts for word alignment. Range: ±2^15 instructions = ±128 KB. If target is farther, assembler inserts an unconditional jump.",
+      "tags": ["mips", "branch", "addressing"]
+    },
+    {
+      "id": "branch-002",
+      "front": "When translating if-else from C to MIPS, why must the branch condition be OPPOSITE to the C condition?",
+      "back": "Because the 'then' block follows immediately after the branch. If the condition is TRUE, we want to fall through to 'then'. So the branch (which jumps to 'else') must trigger when the condition is FALSE. Example: C says 'if (a == b)', so MIPS uses 'bne $a, $b, else' — branch away when NOT equal.",
+      "tags": ["mips", "branch", "if-else"]
+    },
+    {
+      "id": "branch-003",
+      "front": "How do you implement 'branch if less than' in MIPS (it has no blt instruction)?",
+      "back": "Use two instructions: slt $at, $s0, $s1 (set $at to 1 if $s0 < $s1) then bne $at, $zero, label (branch if $at is not zero, i.e., $s0 < $s1). The assembler does this automatically for the pseudo-instruction blt.",
+      "tags": ["mips", "branch", "slt"]
+    },
+    {
+      "id": "branch-004",
+      "front": "How do signed and unsigned comparisons differ? Give an example.",
+      "back": "slt interprets operands as signed two's complement; sltu interprets them as unsigned. If $s0 = 1 and $s1 = 0xFFFFFFFF: slt $t0,$s0,$s1 → $t0 = 0 (1 > −1 signed). sltu $t0,$s0,$s1 → $t0 = 1 (1 < 4,294,967,295 unsigned).",
+      "tags": ["mips", "branch", "comparison"]
+    },
+    {
+      "id": "branch-005",
+      "front": "How is short-circuit evaluation of AND implemented efficiently in MIPS?",
+      "back": "Reverse each condition and branch past the body: for 'if ((s1>0) && (s2<0)) {s3++;}' use: blez $s1, next / bgez $s2, next / addiu $s3,$s3,1 / next: — Only 3 instructions. If first condition is false, we skip everything. Fall-through handles the true case.",
+      "tags": ["mips", "branch", "boolean"]
+    },
+    {
+      "id": "branch-006",
+      "front": "What is the efficient way to place a loop condition check — top or bottom of the loop?",
+      "back": "Place the condition at the BOTTOM. This eliminates one jump instruction per iteration. Structure: jump to condition / loop_body: (loop code) / condition: (test and branch back to loop_body). First iteration enters through the jump; subsequent iterations enter through the back-branch. Saves one instruction per iteration.",
+      "tags": ["mips", "loops", "optimization"]
+    },
+    {
+      "id": "proc-001",
+      "front": "What happens when jal (jump and link) is executed?",
+      "back": "Two things: 1) $ra is set to PC + 4 (the address of the instruction after the jal — the return address). 2) PC is set to the target address (the procedure entry point). The procedure returns by executing jr $ra.",
+      "tags": ["mips", "procedures"]
+    },
+    {
+      "id": "proc-002",
+      "front": "How does the stack work in MIPS?",
+      "back": "The stack grows DOWNWARD (from high to low addresses). $sp points to the top (last item pushed). Push: $sp = $sp − N, then store. Pop: load, then $sp = $sp + N. Procedures use the stack to save $ra (for nested calls), $s-registers they modify, and extra arguments beyond $a0-$a3.",
+      "tags": ["mips", "procedures", "stack"]
+    },
+    {
+      "id": "pseudo-001",
+      "front": "What are pseudo-instructions? Give three examples.",
+      "back": "Instructions that don't exist in hardware but are provided by the assembler for convenience, translated to real instructions: move $s1,$s2 → addu $s1,$s2,$zero. li $s1, 0xABCD1234 → lui $s1,0xABCD / ori $s1,$s1,0x1234. blt $s1,$s2,label → slt $at,$s1,$s2 / bne $at,$zero,label. $at ($1) is reserved for assembler use.",
+      "tags": ["mips", "pseudo-instructions"]
+    },
+    {
+      "id": "addr-001",
+      "front": "Name all five MIPS addressing modes and what each is used for.",
+      "back": "1) Immediate: operand is constant in instruction (addi, ori). 2) Register: operand is in a register (add, sub, and). 3) Base/Displacement: memory address = register + offset (lw, sw). 4) PC-Relative: target = PC + 4 + offset×4 (beq, bne). 5) Pseudo-Direct: target = {PC[31:28], addr26, 00} (j, jal).",
+      "tags": ["mips", "addressing-modes"]
+    },
+    {
+      "id": "fp-001",
+      "front": "Why are floating-point numbers needed? What advantage do they have over fixed-point?",
+      "back": "Floating-point provides a vast dynamic range by using a form of scientific notation in binary. It can represent very large (8.64×10^13) and very small (1.0×10^-9) numbers. Fixed-point has a fixed binary point position, giving limited range. Floating-point trades off some precision for range by using an exponent to shift the binary point.",
+      "tags": ["floating-point", "basics"]
+    },
+    {
+      "id": "fp-002",
+      "front": "What does it mean for a floating-point number to be 'normalized'?",
+      "back": "Exactly one non-zero digit appears before the binary point. In binary, since the only non-zero digit is 1, every normalized number has the form 1.xxxxx × 2^e. The leading 1 is always present and doesn't need to be stored (hidden/implicit 1), saving one bit of precision.",
+      "tags": ["floating-point", "normalization"]
+    },
+    {
+      "id": "fp-003",
+      "front": "What are the three fields of an IEEE 754 floating-point number and what does each control?",
+      "back": "S (1 bit): Sign — 0 = positive, 1 = negative. E (exponent field): determines magnitude/range — more bits = wider range. F (fraction field): significand bits after the binary point — more bits = higher precision. For normalized: Value = (−1)^S × (1.F) × 2^(E−Bias).",
+      "tags": ["floating-point", "ieee754"]
+    },
+    {
+      "id": "fp-004",
+      "front": "What is the biased exponent and why does IEEE 754 use it instead of two's complement?",
+      "back": "Biased representation: actual exponent = E − Bias, where E is stored as an unsigned integer. SP: Bias=127, DP: Bias=1023. Advantage: makes floating-point comparison simpler — larger stored E always means larger magnitude, so an integer comparator can compare FP magnitudes directly.",
+      "tags": ["floating-point", "ieee754", "exponent"]
+    },
+    {
+      "id": "fp-005",
+      "front": "What are the exponent ranges for IEEE 754 single and double precision?",
+      "back": "Single: E field is 8 bits (0-255). E=0 and E=255 reserved for special values. Normalized: E=1 to 254, actual exponent = −126 to +127. Double: E field is 11 bits (0-2047). E=0 and E=2047 reserved. Normalized: E=1 to 2046, actual exponent = −1022 to +1023.",
+      "tags": ["floating-point", "ieee754", "exponent"]
+    },
+    {
+      "id": "fp-006",
+      "front": "How do you convert a decimal fraction to binary? Show the method.",
+      "back": "Multiply by 2 repeatedly, taking the integer part as each bit:\n0.8125 × 2 = 1.625 → bit = 1\n0.625 × 2 = 1.25 → bit = 1\n0.25 × 2 = 0.5 → bit = 0\n0.5 × 2 = 1.0 → bit = 1, stop (fraction = 0)\nResult: 0.1101₂. Then normalize: 1.101 × 2^(−1).",
+      "tags": ["floating-point", "conversion"]
+    },
+    {
+      "id": "fp-007",
+      "front": "What is the largest normalized single-precision float?",
+      "back": "E = 254, exponent = 254−127 = 127. F = all 1s, significand ≈ 2−2^(−23) ≈ 2. Value ≈ 2 × 2^127 = 2^128 ≈ 3.4 × 10^38.",
+      "tags": ["floating-point", "range"]
+    },
+    {
+      "id": "fp-008",
+      "front": "What is the smallest normalized single-precision float (closest to zero)?",
+      "back": "E = 1, exponent = 1−127 = −126. F = all 0s, significand = 1.0. Value = 1.0 × 2^(−126) ≈ 1.18 × 10^(−38).",
+      "tags": ["floating-point", "range"]
+    },
+    {
+      "id": "fp-009",
+      "front": "What are the five special values in IEEE 754 and how are they encoded?",
+      "back": "Zero: E=0, F=0 (both +0 and −0 exist). Infinity: E=max (255 SP/2047 DP), F=0 (both +∞ and −∞). NaN: E=max, F≠0 (result of 0/0, √(−1)). Denormalized: E=0, F≠0 (gradual underflow, implicit digit is 0 not 1). Normalized: E=1 to max−1, any F.",
+      "tags": ["floating-point", "ieee754", "special-values"]
+    },
+    {
+      "id": "fp-010",
+      "front": "What is a denormalized number and what problem does it solve?",
+      "back": "A denormalized number has E=0 and F≠0. The implicit leading digit becomes 0 (not 1), and the exponent is fixed at E_min (−126 for SP, −1022 for DP). Value = (−1)^S × 0.F × 2^(−126). Denormalized numbers fill the gap between zero and the smallest normalized number, providing gradual underflow — precision degrades gracefully toward zero instead of jumping abruptly.",
+      "tags": ["floating-point", "ieee754", "denormalized"]
+    },
+    {
+      "id": "fp-011",
+      "front": "What is overflow vs underflow in floating-point arithmetic?",
+      "back": "Overflow: the result's exponent exceeds the maximum representable exponent — the number is too large in magnitude. Results in ±infinity. Underflow: the result's exponent is smaller than the minimum — the number is too close to zero. Results in denormalized number or zero.",
+      "tags": ["floating-point", "overflow"]
+    },
+    {
+      "id": "fp-012",
+      "front": "Why can an integer comparator be used to compare IEEE 754 floating-point magnitudes?",
+      "back": "Because: 1) the biased exponent ensures larger E value = larger magnitude, 2) the exponent field is placed before the fraction field in the bit layout, so larger exponent dominates comparison, 3) for equal exponents, larger fraction = larger magnitude. The sign bit (MSB) allows quick sign testing. So the combined exponent+fraction bit pattern acts like an unsigned integer for magnitude comparison.",
+      "tags": ["floating-point", "ieee754", "comparison"]
+    },
+    {
+      "id": "fpadd-001",
+      "front": "What are the four steps of floating-point addition?",
+      "back": "1) Align exponents: shift the smaller number's significand RIGHT until exponents match (shift amount = exponent difference). 2) Add/subtract significands (add if same signs, subtract if different). 3) Normalize: shift right+increment exponent if carry, or shift left+decrement exponent if leading zeros. 4) Round to target precision; renormalize if rounding causes carry.",
+      "tags": ["floating-point", "addition"]
+    },
+    {
+      "id": "fpadd-002",
+      "front": "Why can't you add two floating-point numbers whose exponents differ without first aligning them?",
+      "back": "Because the binary points are in different positions. Adding 1.111 × 2^(−1) and 1.011 × 2^(−3) directly would be like adding 1.111 and 1.011 which gives the wrong result. You must first shift 1.011 right by 2 (the exponent difference) to get 0.01011 × 2^(−1), aligning the binary points so corresponding bit positions represent the same powers of 2.",
+      "tags": ["floating-point", "addition", "alignment"]
+    },
+    {
+      "id": "fpmul-001",
+      "front": "What are the four steps of floating-point multiplication?",
+      "back": "1) Add biased exponents: E_result = E_x + E_y − Bias (subtract bias once). 2) Multiply significands; result sign = XOR of input signs. 3) Normalize: product of two numbers ≥1 and <2 is ≥1 and <4, so at most ONE right shift needed. 4) Round and renormalize if needed. Check for overflow/underflow.",
+      "tags": ["floating-point", "multiplication"]
+    },
+    {
+      "id": "fpmul-002",
+      "front": "Why do we subtract the bias when adding biased exponents for multiplication?",
+      "back": "Each biased exponent already includes the bias: E_x = e_x + Bias, E_y = e_y + Bias. The true result exponent is e_x + e_y. So E_result = E_x + E_y − Bias = (e_x + Bias) + (e_y + Bias) − Bias = e_x + e_y + Bias. This gives the correctly biased result.",
+      "tags": ["floating-point", "multiplication", "exponent"]
+    },
+    {
+      "id": "fpmul-003",
+      "front": "Why does FP multiplication need at most 1 normalization shift?",
+      "back": "Both input significands are ≥ 1.0 and < 2.0 (normalized). Their product is ≥ 1.0 and < 4.0. If the product is ≥ 2.0, one right shift with exponent increment normalizes it. If < 2.0, it's already normalized. No left shifts are ever needed (unlike subtraction which can produce many leading zeros).",
+      "tags": ["floating-point", "multiplication", "normalization"]
+    },
+    {
+      "id": "round-001",
+      "front": "What are the Guard, Round, and Sticky bits and why are they needed?",
+      "back": "Three extra bits kept beyond the last fraction bit during intermediate FP computations:\nGuard (G): immediately after last fraction bit — prevents loss of significant bit during normalization shifts.\nRound (R): after guard bit — provides extra precision for rounding decision.\nSticky (S): OR of ALL remaining bits beyond round bit — captures whether any discarded bit was non-zero.\nThese three bits are sufficient to round as if the result had been computed with infinite precision.",
+      "tags": ["floating-point", "rounding", "grs"]
+    },
+    {
+      "id": "round-002",
+      "front": "Describe the four IEEE 754 rounding modes.",
+      "back": "1) Round to Nearest Even (default): rounds to nearest; if exactly halfway (G=1,R=S=0), rounds to make LSB even. Eliminates statistical bias.\n2) Round toward +∞: always rounds up (toward positive infinity).\n3) Round toward −∞: always rounds down (toward negative infinity).\n4) Round toward 0: always truncates (discards extra bits). Simplest but biased toward zero.",
+      "tags": ["floating-point", "rounding", "modes"]
+    },
+    {
+      "id": "round-003",
+      "front": "For Round to Nearest Even: when exactly do you increment vs truncate?",
+      "back": "Given result 1.f₁f₂...fₚ|GRS:\nIncrement if: G=1 AND (R=1 OR S=1) — more than halfway.\nOR: G=1 AND R=0 AND S=0 AND fₚ=1 — exactly halfway, LSB is odd, round to even.\nTruncate otherwise.\nIn binary, 'even' means LSB = 0. 'Halfway' means GRS = 100.",
+      "tags": ["floating-point", "rounding", "nearest-even"]
+    },
+    {
+      "id": "round-004",
+      "front": "Why is Round to Nearest Even the default, not simple round-half-up?",
+      "back": "Round-half-up always rounds 0.5 upward, creating a systematic positive bias — over many operations, results drift upward. Round to Nearest Even rounds 0.5 to the nearest even number, meaning half the time it rounds up and half down (for random data), eliminating statistical bias. This is crucial for numerical accuracy in scientific computing.",
+      "tags": ["floating-point", "rounding", "bias"]
+    },
+    {
+      "id": "fpinst-001",
+      "front": "How are double-precision FP registers organized in MIPS?",
+      "back": "Each FP register ($f0-$f31) is 32 bits. For double precision, adjacent even-odd pairs are used: $f0/$f1, $f2/$f3, ..., $f30/$f31. You refer to the pair by the even number. So 'add.d $f2, $f4, $f6' uses pairs ($f2,$f3), ($f4,$f5), ($f6,$f7).",
+      "tags": ["mips", "floating-point", "registers"]
+    },
+    {
+      "id": "fpinst-002",
+      "front": "What is the difference between .s and .d suffixes in MIPS FP instructions?",
+      "back": ".s = single precision (32-bit, one FP register). .d = double precision (64-bit, even-odd register pair). Examples: add.s uses single FP registers, add.d uses double FP register pairs. mul.s $f4,$f6,$f8 vs mul.d $f4,$f6,$f8.",
+      "tags": ["mips", "floating-point", "instructions"]
+    },
+    {
+      "id": "fpinst-003",
+      "front": "How do FP compare and branch work in MIPS?",
+      "back": "Compare instructions (c.eq.s, c.lt.s, c.le.s and .d variants) set a condition flag to 0 or 1. Branch instructions test this flag: bc1t label branches if flag=1 (true), bc1f label branches if flag=0 (false). There is no direct 'branch if FP greater than' — use c.le and bc1f to branch if NOT less-or-equal.",
+      "tags": ["mips", "floating-point", "branch"]
+    },
+    {
+      "id": "fpinst-004",
+      "front": "What syscall codes are used for FP I/O in MIPS?",
+      "back": "Print float: $v0=2, value in $f12. Print double: $v0=3, value in $f12. Read float: $v0=6, result in $f0. Read double: $v0=7, result in $f0.",
+      "tags": ["mips", "floating-point", "syscall"]
+    },
+    {
+      "id": "fpinst-005",
+      "front": "What does the cvt.x.y instruction do in MIPS?",
+      "back": "Converts from format y to format x. Formats: .s = single float, .d = double float, .w = 32-bit integer (stored in FP register). Examples: cvt.s.w converts integer to single float. cvt.d.s converts single to double. cvt.w.d converts double to integer.",
+      "tags": ["mips", "floating-point", "conversion"]
+    },
+    {
+      "id": "cache-001",
+      "front": "What is the principle of locality and its two forms?",
+      "back": "Programs tend to access a small subset of their address space repeatedly. Temporal locality: recently accessed items are likely to be accessed again soon (e.g., loop variables). Spatial locality: items near a recently accessed item are likely to be accessed soon (e.g., sequential array elements, sequential instructions). Caches exploit both forms.",
+      "tags": ["cache", "locality"]
+    },
+    {
+      "id": "cache-002",
+      "front": "What is a cache hit vs cache miss? What happens on each?",
+      "back": "Cache hit: requested data is found in the cache — delivered immediately (fast). Cache miss: data not in cache — the block containing the data must be fetched from main memory (slow), loaded into a cache line (evicting an existing line if full), then delivered to the CPU.",
+      "tags": ["cache", "basics"]
+    },
+    {
+      "id": "cache-003",
+      "front": "What is a cache tag and why is it needed?",
+      "back": "A tag is a portion of the memory address stored alongside each cache line's data. Since multiple memory blocks can map to the same cache line/set, the tag uniquely identifies which specific memory block is currently stored there. On each access, the tag is compared against the address to determine hit or miss.",
+      "tags": ["cache", "tag"]
+    },
+    {
+      "id": "cache-004",
+      "front": "Explain direct-mapped cache. What are its advantages and disadvantages?",
+      "back": "Each memory block maps to exactly ONE cache line: line = block_number mod num_lines. Address split: Tag | Line | Word. Only one location to check (fast, simple hardware). Disadvantage: inflexible — two blocks mapping to the same line cause thrashing (repeated evictions) even if other cache lines are empty.",
+      "tags": ["cache", "direct-mapping"]
+    },
+    {
+      "id": "cache-005",
+      "front": "What are the address fields for a direct-mapped cache and how are they sized?",
+      "back": "Address = Tag(s−r bits) | Line(r bits) | Word(w bits). Word: w bits select byte/word within block (block_size = 2^w). Line: r bits select cache line (num_lines = 2^r). Tag: remaining high-order bits (s−r), stored with each line, compared for hit detection. Total address = s + w bits.",
+      "tags": ["cache", "direct-mapping", "address"]
+    },
+    {
+      "id": "cache-006",
+      "front": "Explain fully associative cache. When is it practical?",
+      "back": "Any memory block can be placed in ANY cache line. Address = Tag(s bits) | Word(w bits) — no line/set field. Every line's tag must be compared in parallel, requiring one comparator per line. Maximum flexibility (no conflict misses) but expensive. Only practical for small caches like TLBs or victim caches (4-16 entries).",
+      "tags": ["cache", "associative-mapping"]
+    },
+    {
+      "id": "cache-007",
+      "front": "Explain k-way set-associative cache.",
+      "back": "Cache divided into sets, each containing k lines. A block maps to a specific set (set = block_num mod num_sets) but can go in any of the k lines within that set. Address = Tag(s−d bits) | Set(d bits) | Word(w bits). k comparators needed per access. Compromise: 1-way = direct mapped, all-lines-in-one-set = fully associative.",
+      "tags": ["cache", "set-associative"]
+    },
+    {
+      "id": "cache-008",
+      "front": "What are the key formulas for set-associative cache sizing?",
+      "back": "Number of sets v = 2^d. Lines per set = k. Total cache lines = k × 2^d. Block size = 2^w bytes. Tag size = s − d bits (where 2^s = number of memory blocks). Cache size = k × 2^d × 2^w bytes (total data, excluding tags).",
+      "tags": ["cache", "set-associative", "formulas"]
+    },
+    {
+      "id": "cache-009",
+      "front": "What are the four main cache replacement algorithms?",
+      "back": "LRU (Least Recently Used): evict least recently accessed line. Best performance, expensive for high associativity. FIFO: evict oldest loaded line. Simpler than LRU. LFU (Least Frequently Used): evict line with fewest hits, needs counters. Random: randomly choose a line. Surprisingly effective for large caches, simplest hardware.",
+      "tags": ["cache", "replacement"]
+    },
+    {
+      "id": "cache-010",
+      "front": "Compare write-through and write-back cache policies.",
+      "back": "Write-through: every write goes to both cache and main memory. Memory always current. Simple coherence. Heavy bus traffic. Write buffer helps. Write-back: writes only update cache; dirty bit tracks modified lines. Write to memory only on eviction. Less bus traffic. Stale main memory complicates coherence. About 15% of references are writes.",
+      "tags": ["cache", "write-policy"]
+    },
+    {
+      "id": "cache-011",
+      "front": "What is a victim cache?",
+      "back": "A small (4-16 lines) fully associative cache between L1 and L2. When a line is evicted from L1, it goes to the victim cache. If the same line is needed again quickly (common with direct-mapped conflict misses), it's retrieved from the victim cache faster than from L2. Reduces miss penalty for conflict misses.",
+      "tags": ["cache", "victim-cache"]
+    },
+    {
+      "id": "cache-012",
+      "front": "What is the advantage of split caches vs unified caches?",
+      "back": "Split (separate I-cache and D-cache): eliminates contention between instruction fetch and data access, critical for pipelining where both happen simultaneously. Unified: higher overall hit rate (capacity shared dynamically), simpler. Modern processors: split L1, unified L2/L3.",
+      "tags": ["cache", "split-unified"]
+    },
+    {
+      "id": "cache-013",
+      "front": "What is the difference between logical (virtual) cache and physical cache?",
+      "back": "Logical cache: uses virtual addresses — faster (no translation delay), but must be flushed on context switch because different processes share virtual address space. Physical cache: uses physical addresses from MMU — no aliasing problems, but translation must complete before cache access. Most modern L1 caches use virtual index + physical tag (VIPT) as a compromise.",
+      "tags": ["cache", "addressing"]
+    },
+    {
+      "id": "cache-014",
+      "front": "How does increasing block (line) size affect cache performance?",
+      "back": "Initially increases hit rate by exploiting spatial locality (adjacent data fetched together). But eventually decreases hit rate because: fewer lines fit in the cache (more conflict misses), larger miss penalty (more data to transfer), and each additional word in the block is less likely to be needed. Typical optimal: 16-128 bytes. For HPC: 64-128 bytes.",
+      "tags": ["cache", "block-size"]
+    },
+    {
+      "id": "cache-015",
+      "front": "How does increasing associativity affect cache performance?",
+      "back": "2-way significantly reduces conflict misses over direct mapping. 4-way over 2-way gives smaller improvement. Beyond 8-way, diminishing returns. Above 32 KB cache, increasing associativity gives almost no improvement. The hardware cost (more comparators, mux complexity) increases linearly with k, so the sweet spot is usually 4-8 way for modern L1/L2.",
+      "tags": ["cache", "associativity"]
+    },
+    {
+      "id": "perf-001",
+      "front": "State the Iron Law of processor performance.",
+      "back": "Time/Program = (Instructions/Program) × (Cycles/Instruction) × (Time/Cycle) = IC × CPI × T_cycle. IC determined by algorithm, compiler, ISA. CPI determined by ISA, CPU organization. T_cycle determined by technology, organization, circuit design. Minimize the PRODUCT, not any single term.",
+      "tags": ["performance", "iron-law"]
+    },
+    {
+      "id": "perf-002",
+      "front": "Why is MIPS (the metric) a flawed performance measure?",
+      "back": "MIPS = IC/(Time×10^6) = Clock_rate/(CPI×10^6). Problems: 1) depends on ISA (different instruction counts for same task). 2) Adding FP hardware can decrease IC and time but increase CPI, making MIPS go DOWN while performance improves. 3) Usually quotes peak (ideal) performance. Only valid when comparing same ISA/compiler (IC constant).",
+      "tags": ["performance", "metrics"]
+    },
+    {
+      "id": "perf-003",
+      "front": "When should you use arithmetic mean, harmonic mean, and geometric mean?",
+      "back": "Arithmetic Mean: for execution times (sum of times / n). Harmonic Mean: for rates (MIPS, MFLOPS) — accounts for time in denominator. Geometric Mean: for ratios/speedups — independent of reference machine. NEVER use arithmetic mean on ratios — it gives contradictory results depending on which machine is the reference.",
+      "tags": ["performance", "averaging"]
+    },
+    {
+      "id": "perf-004",
+      "front": "What is Amdahl's Law? Write the formula.",
+      "back": "Speedup = 1 / ((1−f) + f/s), where f = fraction of execution time improved, s = speedup factor for that fraction. Key insight: even with infinite speedup on fraction f, maximum speedup = 1/(1−f). If 10% is serial, max speedup = 10× regardless of how many processors you add.",
+      "tags": ["performance", "amdahl"]
+    },
+    {
+      "id": "perf-005",
+      "front": "Apply Amdahl's Law: ALU (95% of time) sped up 1.1×. What is the overall speedup?",
+      "back": "Speedup = 1 / ((1−0.95) + 0.95/1.1) = 1 / (0.05 + 0.8636) = 1 / 0.9136 = 1.094×. Compare with speeding up memory (5%) by 10×: 1 / (0.95 + 0.05/10) = 1 / 0.955 = 1.047×. The modest ALU improvement wins because it affects the dominant fraction.",
+      "tags": ["performance", "amdahl", "example"]
+    },
+    {
+      "id": "perf-006",
+      "front": "Machine A: 1ns clock, CPI 2.0. Machine B: 2ns clock, CPI 1.2. Which is faster and by how much?",
+      "back": "Time(A) = N × 2.0 × 1 = 2N ns. Time(B) = N × 1.2 × 2 = 2.4N ns. Time(B)/Time(A) = 2.4/2.0 = 1.2. Machine A is 1.2× (20%) faster than Machine B.",
+      "tags": ["performance", "iron-law", "example"]
+    },
+    {
+      "id": "perf-007",
+      "front": "What does 'Machine A is 50% faster than Machine B' mean mathematically?",
+      "back": "perf(A)/perf(B) = time(B)/time(A) = 1.5. So if B takes 15 seconds, A takes 10 seconds. 15/10 = 1.5 = 1 + 50/100. A is 1.5 times as fast, or equivalently 50% faster.",
+      "tags": ["performance", "comparison"]
+    },
+    {
+      "id": "perf-008",
+      "front": "What is the difference between response time and throughput?",
+      "back": "Response time: time from start to completion of a single task (user perspective). Throughput: number of tasks completed per unit time (system perspective). Throughput = 1/avg_response_time ONLY if there is no overlap. With parallelism/pipelining, throughput > 1/avg_response_time.",
+      "tags": ["performance", "basics"]
+    },
+    {
+      "id": "mem-hier-001",
+      "front": "List the memory hierarchy from fastest to slowest.",
+      "back": "Registers → L1 Cache → L2 Cache → L3 Cache → Main Memory (DRAM) → Disk Cache → Disk (HDD/SSD) → Optical (CD/DVD) → Tape. Each level is larger, slower, and cheaper per bit than the one above it.",
+      "tags": ["memory", "hierarchy"]
+    },
+    {
+      "id": "mem-hier-002",
+      "front": "What are the four memory access methods?",
+      "back": "Sequential: read from beginning in order, access time depends on location (tape). Direct: jump to vicinity then sequential search, access time depends on location (disk). Random: any location accessed in constant time (RAM). Associative: data located by comparing content, constant time (cache).",
+      "tags": ["memory", "access-methods"]
+    },
+    {
+      "id": "disk-001",
+      "front": "What are the three components of disk access time?",
+      "back": "Disk Access Time = Seek Time + Rotation Latency + Transfer Time. Seek Time: time for head to move to desired track (milliseconds). Rotation Latency: time for desired sector to rotate under head (average = half a rotation). Transfer Time: time to read/write the actual data.",
+      "tags": ["memory", "disk"]
+    },
+    {
+      "id": "six-bit-001",
+      "front": "In the 6-bit FP example (1 sign, 3 exponent, 2 fraction, bias=3), what is the value of normalized 0|101|10?",
+      "back": "S=0 (positive), E=101₂=5, exponent=5−3=2, F=10, significand=1.10₂=1.5. Value = 1.5 × 2² = 1.5 × 4 = 6.0",
+      "tags": ["floating-point", "6-bit-example"]
+    },
+    {
+      "id": "six-bit-002",
+      "front": "In the 6-bit FP model (bias=3), what is the largest normalized value?",
+      "back": "E=110₂=6 (max normalized), exponent=6−3=3. F=11, significand=1.11₂=1.75. Value = 1.75 × 2³ = 1.75 × 8 = 14.0. (E=111 is reserved for infinity/NaN.)",
+      "tags": ["floating-point", "6-bit-example"]
+    },
+    {
+      "id": "six-bit-003",
+      "front": "In the 6-bit FP model (bias=3), how are denormalized values computed?",
+      "back": "E=000 (zero exponent), implicit digit is 0 (not 1). Fixed exponent = −2 (which is 1−bias = 1−3 = −2). Value = (−1)^S × 0.F₂ × 2^(−2). Example: 0|000|01 = 0.01₂ × 2^(−2) = 0.25 × 0.25 = 0.0625. These fill the gap between 0 and smallest normalized (0|001|00 = 1.00 × 2^(−2) = 0.25).",
+      "tags": ["floating-point", "6-bit-example", "denormalized"]
+    },
+    {
+      "id": "special-001",
+      "front": "What results do these FP operations produce? nonzero/0, 0/0, ∞×0, NaN op X",
+      "back": "nonzero/0 = ±∞ (sign depends on operand signs). 0/0 = NaN. ∞×0 = NaN. ±∞/±∞ = NaN. NaN op anything = NaN (NaN propagates through all operations).",
+      "tags": ["floating-point", "special-values", "operations"]
+    },
+    {
+      "id": "pentium-001",
+      "front": "Describe the Pentium 4 cache organization.",
+      "back": "L1: split I-cache (12K micro-ops) and D-cache (8-16 KB), 64-byte lines, 4-way set-associative. L2: unified, 256-512 KB, 128-byte lines, 8-way set-associative, feeds both L1 caches. L3: on-chip, 1+ MB. Key design: instructions decoded into RISC-like micro-ops BEFORE L1 I-cache, allowing fixed-length micro-op caching for easier pipelining.",
+      "tags": ["cache", "pentium"]
+    },
+    {
+      "id": "string-001",
+      "front": "How do you copy a null-terminated string in MIPS assembly?",
+      "back": "Use pointer traversal with lb/sb:\nmove $t0, $src / move $t1, $dst\nL1: lb $t2, 0($t0) / sb $t2, 0($t1)\naddiu $t0, $t0, 1 / addiu $t1, $t1, 1\nbne $t2, $zero, L1\nLoad byte, store byte, increment both pointers, loop until null character (0) is copied.",
+      "tags": ["mips", "strings", "coding"]
+    },
+    {
+      "id": "sum-array-001",
+      "front": "Write MIPS pseudocode for sum = 0; for(i=0; i<n; i++) sum += A[i];",
+      "back": "move $t0, $base (pointer). xor $t1,$t1,$t1 (i=0). xor $sum,$sum,$sum (sum=0). j cond\nL1: lw $t2, 0($t0) / addu $sum,$sum,$t2 / addiu $t0,$t0,4 / addiu $t1,$t1,1\ncond: bne $t1, $n, L1\nKey: pointer traversal (+4 each iteration) avoids recomputing address.",
+      "tags": ["mips", "arrays", "loops", "coding"]
+    },
+    {
+      "id": "matmul-001",
+      "front": "In the MIPS matrix multiplication, how is the address of element y[i][k] computed for an n×n double array?",
+      "back": "Address = base_y + (i×n + k) × 8. In MIPS: multu $t1,$a0 (i×n), mflo $t4, addu $t4,$t4,$t3 (add k), sll $t4,$t4,3 (multiply by 8 for double), addu $t4,$a2,$t4 (add base address), ldc1 $f2, 0($t4). The ×8 is because doubles are 8 bytes.",
+      "tags": ["mips", "matrix", "coding"]
+    },
+    {
+      "id": "area-001",
+      "front": "Write MIPS code to compute the area of a circle (π × r²) using double precision.",
+      "back": ".data\npi: .double 3.1415926535897924\nmsg: .asciiz \"Area = \"\n.text\nldc1 $f2, pi / li $v0, 7 / syscall (read double r into $f0)\nmul.d $f12, $f0, $f0 (r²) / mul.d $f12, $f2, $f12 (π×r²)\nla $a0, msg / li $v0, 4 / syscall (print msg)\nli $v0, 3 / syscall (print double from $f12)",
+      "tags": ["mips", "floating-point", "coding"]
+    },
+    {
+      "id": "wb-001",
+      "front": "What is a write buffer and how does it help write-through caches?",
+      "back": "A small FIFO queue between the cache and main memory. On a write-through cache write, data goes into the buffer at processor speed (fast), and the processor continues executing. The buffer drains to main memory in parallel. If the buffer fills, the processor stalls. Keeps buffer small because data in it isn't available for reads until written.",
+      "tags": ["cache", "write-policy", "buffer"]
+    },
+    {
+      "id": "spec-001",
+      "front": "What is SPEC and how are SPEC scores computed?",
+      "back": "System Performance Evaluation Cooperative — standardized benchmarks (SPEC CINT2000: 12 integer, SPEC CFP2000: 14 FP programs). Each program's execution time is compared to a reference machine (Sun Ultra-5 300MHz = score 100). The geometric mean of all ratios gives the overall SPEC score. GM is used because it handles ratios without reference-machine bias.",
+      "tags": ["performance", "benchmarks"]
+    },
+    {
+      "id": "cache-016",
+      "front": "In a direct-mapped cache: which cache line does memory block B map to?",
+      "back": "Cache line = B mod m, where m = number of cache lines. Example: if cache has 4 lines (m=4), blocks 0,4,8,12 all map to line 0; blocks 1,5,9,13 map to line 1; etc. This is why conflict misses occur — blocks with the same (B mod m) value compete for the same line.",
+      "tags": ["cache", "direct-mapping"]
+    },
+    {
+      "id": "cache-017",
+      "front": "How do you compute the hit ratio for a sequence of memory accesses?",
+      "back": "Hit ratio = (number of cache hits) / (total number of accesses). Track the cache state for each access: if the requested block is in cache → hit; otherwise → miss (load the block, possibly evicting another). Count hits and total accesses. For loops, multiply the per-iteration pattern by the loop count.",
+      "tags": ["cache", "hit-ratio"]
+    },
+    {
+      "id": "disk-002",
+      "front": "Calculate average rotation latency given RPM.",
+      "back": "Average rotation latency = time for half a rotation. Rotation time = 60/RPM seconds. Average latency = 30/RPM seconds. Example: 5400 RPM → RPS = 90, rotation time = 1000/90 = 11.1 ms, average latency = 11.1/2 = 5.56 ms.",
+      "tags": ["memory", "disk", "calculation"]
     }
   ]
 }
